@@ -6,7 +6,7 @@ public class Pet {
     private String color;
     private boolean adopted;
 
-    // Constructor
+
     public Pet(String name, int age, String kind , String color) {
         this.name = name;
         this.age = age;
@@ -15,7 +15,7 @@ public class Pet {
         this.adopted = false;
     }
 
-    // Getters
+
     public String getName() {
         return name;
     }
@@ -36,7 +36,7 @@ public class Pet {
     }
 
 
-    // Setter
+
     public void setAdopted(boolean adopted) {
         this.adopted = adopted;
     }
@@ -44,7 +44,7 @@ public class Pet {
         this.color = color;
     }
 
-    // Method
+
     public void printPet() {
         System.out.println("Name: " + name);
         System.out.println("Kind: " + kind);

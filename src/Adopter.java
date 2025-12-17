@@ -2,12 +2,12 @@ public class Adopter {
 
     private String personName;
 
-    // Constructor
+
     public Adopter(String personName) {
         this.personName = personName;
     }
 
-    // Method
+
     public void takePet(Pet pet) {
         if (!pet.getAdopted()) {
             pet.setAdopted(true);
