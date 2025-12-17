@@ -2,8 +2,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Pet dog = new Pet("Rex", 4, "Dog");
-        Pet cat = new Pet("Luna", 2, "Cat");
+        Pet dog = new Pet("Rex", 4, "Dog", "Brown");
+        Pet cat = new Pet("Luna", 2, "Cat",  "White");
 
         Adopter adopter = new Adopter("John");
         Shelter shelter = new Shelter("Animal Care");
