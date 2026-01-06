@@ -1,19 +1,17 @@
 public class Adopter {
 
-    private String personName;
+    private String name;
 
-
-    public Adopter(String personName) {
-        this.personName = personName;
+    public Adopter(String name) {
+        this.name = name;
     }
 
-
     public void takePet(Pet pet) {
-        if (!pet.getAdopted()) {
-            pet.setAdopted(true);
-            System.out.println(personName + " took the pet " + pet.getName());
+        if (!pet.isAdopted()) {
+            pet.adopt();
+            System.out.println(name + " adopted " + pet.getName());
         } else {
-            System.out.println("This pet is already adopted");
+            System.out.println("Pet already adopted");
         }
     }
 }

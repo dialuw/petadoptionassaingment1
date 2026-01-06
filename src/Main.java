@@ -1,25 +1,31 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Pet dog = new Pet("Rex", 4, "Dog", "Brown");
-        Pet cat = new Pet("Luna", 2, "Cat",  "White");
+        Scanner scanner = new Scanner(System.in);
+
+        Shelter shelter = new Shelter();
+        shelter.addPet(new Dog("Rex", 4));
+        shelter.addPet(new Cat("Luna", 2));
 
         Adopter adopter = new Adopter("John");
-        Shelter shelter = new Shelter("Animal Care");
 
-        shelter.show(dog);
-        shelter.show(cat);
+        System.out.println("Available pets:");
+        shelter.showAvailable();
 
-        adopter.takePet(cat);
+        System.out.print("Choose pet name: ");
+        String name = scanner.nextLine();
 
-        if (dog.getAge() > cat.getAge()) {
-            System.out.println(dog.getName() + " is older than " + cat.getName());
-        } else {
-            System.out.println(cat.getName() + " is older than " + dog.getName());
+        for (Pet pet : shelter.pets) {
+            if (pet.getName().equalsIgnoreCase(name)) {
+                adopter.takePet(pet);
+            }
         }
 
-        dog.printPet();
-        cat.printPet();
+        shelter.sortByAge();
+        System.out.println("\nSorted by age:");
+        shelter.showAll();
     }
 }
