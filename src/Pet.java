@@ -1,20 +1,14 @@
-public class Pet {
+public abstract class Pet {
 
     private String name;
     private int age;
-    private String kind;
-    private String color;
     private boolean adopted;
 
-
-    public Pet(String name, int age, String kind , String color) {
+    public Pet(String name, int age) {
         this.name = name;
         this.age = age;
-        this.kind = kind;
-        this.color = color;
         this.adopted = false;
     }
-
 
     public String getName() {
         return name;
@@ -24,33 +18,31 @@ public class Pet {
         return age;
     }
 
-    public String getKind() {
-        return kind;
-    }
-
-    public boolean getAdopted() {
+    public boolean isAdopted() {
         return adopted;
     }
-    public String getColor() {
-        return color;
+
+    public void adopt() {
+        this.adopted = true;
     }
 
+    public abstract String getType();
 
-
-    public void setAdopted(boolean adopted) {
-        this.adopted = adopted;
-    }
-    public void setColor(String color) {
-        this.color = color;
+    @Override
+    public String toString() {
+        return getType() + " | Name: " + name + ", Age: " + age + ", Adopted: " + adopted;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pet)) return false;
+        Pet pet = (Pet) o;
+        return name.equals(pet.name) && age == pet.age;
+    }
 
-    public void printPet() {
-        System.out.println("Name: " + name);
-        System.out.println("Kind: " + kind);
-        System.out.println("Age: " + age);
-        System.out.println("Adopted: " + adopted);
-        System.out.println("Color: " + color);
-        System.out.println();
+    @Override
+    public int hashCode() {
+        return name.hashCode() + age;
     }
 }

@@ -8,8 +8,8 @@ public class Shelter {
     }
 
 
-    public void show(Pet pet) {
-        System.out.println("Shelter name: " + name);
-        pet.printPet();
-    }
+  public void takePet(Pet pet) {
+        System.out.println(shelter)
+
+  }
 }
