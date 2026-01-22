@@ -1,6 +1,6 @@
 public class Adopter {
 
-    private String name;
+    private final String name;
 
     public Adopter(String name) {
         this.name = name;

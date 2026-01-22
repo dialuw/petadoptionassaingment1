@@ -1,6 +1,6 @@
 void main() {
 
-    Shelter shelter = new Shelter();
+    Shelter shelter  = new Shelter();
 
     shelter.addPet(new Dog("Rex", 4));
     shelter.addPet(new Cat("Luna", 2));
