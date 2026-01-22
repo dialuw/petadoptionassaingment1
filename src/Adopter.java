@@ -9,6 +9,7 @@ public class Adopter {
     public void takePet(Pet pet) {
         if (!pet.isAdopted()) {
             pet.adopt();
+            PetDAO.adoptPet(pet.getName());
             System.out.println(name + " adopted " + pet.getName());
         } else {
             System.out.println("Pet already adopted");

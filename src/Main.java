@@ -1,31 +1,26 @@
-import java.util.Scanner;
+void main() {
 
-public class Main {
+    Shelter shelter = new Shelter();
 
-    public static void main(String[] args) {
+    shelter.addPet(new Dog("Rex", 4));
+    shelter.addPet(new Cat("Luna", 2));
 
-        Scanner scanner = new Scanner(System.in);
+    shelter.saveAllToDB();
 
-        Shelter shelter = new Shelter();
-        shelter.addPet(new Dog("Rex", 4));
-        shelter.addPet(new Cat("Luna", 2));
+    Adopter adopter = new Adopter("John");
 
-        Adopter adopter = new Adopter("John");
+    shelter.showAvailable();
 
-        System.out.println("Available pets:");
-        shelter.showAvailable();
+    Scanner scanner = new Scanner(System.in);
+    IO.print("Choose pet name: ");
+    String name = scanner.nextLine();
 
-        System.out.print("Choose pet name: ");
-        String name = scanner.nextLine();
-
-        for (Pet pet : shelter.pets) {
-            if (pet.getName().equalsIgnoreCase(name)) {
-                adopter.takePet(pet);
-            }
+    for (Pet pet : shelter.getPets()) {
+        if (pet.getName().equalsIgnoreCase(name)) {
+            adopter.takePet(pet);
         }
-
-        shelter.sortByAge();
-        System.out.println("\nSorted by age:");
-        shelter.showAll();
     }
+
+    IO.println("\nPets from database:");
+    PetDAO.showPets();
 }

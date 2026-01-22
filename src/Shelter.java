@@ -10,14 +10,22 @@ public class Shelter {
         pets.add(pet);
     }
 
-    public void showAll() {
-        pets.forEach(System.out::println);
+    public List<Pet> getPets() {
+        return pets;
     }
 
     public void showAvailable() {
-        pets.stream()
-                .filter(p -> !p.isAdopted())
-                .forEach(System.out::println);
+        for (Pet pet : pets) {
+            if (!pet.isAdopted()) {
+                System.out.println(pet);
+            }
+        }
+    }
+
+    public void saveAllToDB() {
+        for (Pet pet : pets) {
+            PetDAO.addPet(pet);
+        }
     }
 
     public void sortByAge() {

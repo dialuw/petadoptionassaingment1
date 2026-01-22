@@ -1,8 +1,8 @@
 public abstract class Pet {
 
-    private String name;
-    private int age;
-    private boolean adopted;
+    protected String name;
+    protected int age;
+    protected boolean adopted;
 
     public Pet(String name, int age) {
         this.name = name;
@@ -23,26 +23,13 @@ public abstract class Pet {
     }
 
     public void adopt() {
-        this.adopted = true;
+        adopted = true;
     }
 
     public abstract String getType();
 
     @Override
     public String toString() {
-        return getType() + " | Name: " + name + ", Age: " + age + ", Adopted: " + adopted;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Pet)) return false;
-        Pet pet = (Pet) o;
-        return name.equals(pet.name) && age == pet.age;
-    }
-
-    @Override
-    public int hashCode() {
-        return name.hashCode() + age;
+        return getType() + " | " + name + " | age=" + age + " | adopted=" + adopted;
     }
 }
